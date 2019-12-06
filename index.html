@@ -191,8 +191,7 @@
 <body>
   <div id="infos" onload="collision()">COLLISIONS: <span id="info">0</span></div>
     <div id="compte"><p>HUMAINS: 0</p></div>
-  <div id="vie">VIE : <span id="total">3
-  </span></div>
+  <div id="vie">VIE : <span id="total">3</span></div>
 
   <div id="titre">
   <img src="images/titre.png">
@@ -358,10 +357,6 @@
       //Fonction gerant les collisions
 function collision(){
 
-    if (vie==0) {
-          alert("GAME OVER\n \n" + "Score : " + human + " humains\n \nRechargez la page pour rejouer (astuce : appuyez sur F5 puis 'ok').")
-          rejouer.style.display = "block";
-        }
 //Analyse des valeurs (positions) de la terre
         terreX = parseInt($('#terre').css('left'));
         terreY = 10;
@@ -441,6 +436,18 @@ function collision(){
           $('#info').text(collision);
           $('#total').text(affvie);
           ok = 0;
+        }
+
+            if (vie==0) {
+          alert("GAME OVER\n \n" + "Score : " + human + " humains\n \nCliquez OK pour rejouer.")
+          human=0;
+          vitesse=3000;
+          collision =parseInt($('#info').text()) -3;
+          vie=3
+          affvie = parseInt($('#total').text()) + 3;
+          $('#info').text(collision);
+          $('#total').text(affvie);
+          return jeu();
         }
 };
 
