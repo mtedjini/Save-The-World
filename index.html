@@ -447,7 +447,7 @@ function collision(){
           affvie = parseInt($('#total').text()) + 3;
           $('#info').text(collision);
           $('#total').text(affvie);
-          return jeu();
+          setInterval(collision, 30);
         }
 };
 
